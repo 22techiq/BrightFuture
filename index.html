@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bright Future High School</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <!-- Font Awesome -->  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <style>
+    html{scroll-behavior:smooth;}
+    img{max-width:100%;height:auto;}
+    :root{
+      --primary:#1b4332; /* emerald green */
+      --secondary:#d4af37; /* elegant gold */
+      --dark:#081c15;
+      --light:#f8fdfb;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{background:#f9fafb;color:#1f2937;line-height:1.7;overflow-x:hidden;}
+
+    /* NAVIGATION */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:linear-gradient(90deg,var(--primary),#166534);
+      color:#fff;
+    }
+    .nav{
+      max-width:1200px;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1rem 1.2rem;
+    }
+    .logo{font-size:1.5rem;font-weight:700;}
+    .logo span{color:var(--secondary);}    
+
+    .nav ul{list-style:none;display:flex;gap:1.5rem;}
+    .nav ul li a{color:#fff;text-decoration:none;font-weight:500;transition:.3s;}
+    .nav ul li a:hover{color:var(--secondary);}    
+
+    .menu-btn{display:none;font-size:1.7rem;cursor:pointer;}
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(rgba(20,83,45,.75),rgba(20,83,45,.75)),url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:6rem 1rem;
+    }
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem;}
+    .hero p{max-width:700px;margin:auto;font-size:1.1rem;}
+    .hero .btn{
+      display:inline-block;margin-top:2rem;
+      background:var(--secondary);color:#000;
+      padding:.9rem 2.2rem;border-radius:30px;
+      text-decoration:none;font-weight:600;transition:.3s;
+    }
+    .hero .btn:hover{background:#ffcd39;}
+
+    /* SECTIONS */
+    section{padding:4rem 1.2rem;overflow-x:hidden;}
+    .container{max-width:1200px;margin:auto;width:100%;padding-inline:0.5rem;}
+    .section-title{text-align:center;margin-bottom:3rem;}
+    .section-title h2{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--dark);}    
+    .section-title p{max-width:650px;margin:auto;color:#64748b;}
+
+    /* FEATURES */
+    .features{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;
+    }
+    .feature-box{
+      max-width:100%;
+      background:#fff;border-radius:15px;
+      padding:2rem;text-align:center;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      transition:.3s;
+    }
+    .feature-box:hover{transform:translateY(-10px);}    
+    .feature-box i{font-size:2.5rem;color:var(--primary);margin-bottom:1rem;}
+
+    /* ABOUT */
+    .about{
+      display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+    }
+    .about img{width:100%;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.15);}    
+
+    /* NEWS */
+    .news{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;
+    }
+    .news-card{
+      background:#fff;border-radius:15px;overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    .news-card img{width:100%;height:200px;object-fit:cover;}
+    .news-card .content{padding:1.5rem;}
+
+    /* CTA */
+    .cta{
+      background:linear-gradient(90deg,var(--primary),#166534);
+      color:#fff;text-align:center;border-radius:25px;
+      padding:3rem 1rem;
+    }
+    .cta h2{font-size:2.2rem;margin-bottom:1rem;}
+
+    /* FOOTER */
+    footer{background:#022c22;color:#cbd5f5;padding:3rem 1rem;}
+    .footer{
+      max-width:1200px;margin:auto;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;
+    }
+    footer a{color:#cbd5f5;text-decoration:none;}
+    .social i{font-size:1.3rem;margin-right:1rem;transition:.3s;}
+    .social i:hover{color:var(--secondary);}    
+    .copyright{text-align:center;margin-top:2rem;font-size:.9rem;}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .nav ul{
+        position:absolute;top:70px;right:0;background:#14532d;
+        flex-direction:column;width:220px;padding:1.5rem;
+        display:none;border-radius:0 0 0 20px;
+      }
+      .nav ul.show{display:flex;}
+      .menu-btn{display:block;}
+      .about{grid-template-columns:1fr;}
+      .hero h1{font-size:2.2rem;}
+    }
+  </style></head>
+<body><header>
+  <nav class="nav">
+    <div class="logo"><img src="https://dummyimage.com/40x40/ffc107/000.png&text=BF" alt="Logo" style="vertical-align:middle;border-radius:50%;margin-right:8px;">Bright<span>Future</span> High</div>
+    <i class="fas fa-bars menu-btn" onclick="toggleMenu()"></i>
+    <ul id="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Academics</a></li>
+      <li><a href="#">Admissions</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header><section class="hero">
+  <h1>Shaping Tomorrow's Leaders</h1>
+  <p>A modern high school committed to academic excellence, discipline, innovation, and holistic student growth.</p>
+  <a href="#" class="btn">Apply for Admission</a>
+</section><section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose Us</h2>
+      <p>We provide quality education in a safe, innovative, and student-centered environment.</p>
+    </div><div class="features">
+  <div class="feature-box">
+    <i class="fas fa-graduation-cap"></i>
+    <h3>Academic Excellence</h3>
+    <p>Consistently outstanding results with a strong academic culture.</p>
+  </div>
+  <div class="feature-box">
+    <i class="fas fa-chalkboard-teacher"></i>
+    <h3>Qualified Teachers</h3>
+    <p>Dedicated and experienced teaching staff.</p>
+  </div>
+  <div class="feature-box">
+    <i class="fas fa-futbol"></i>
+    <h3>Co-Curricular</h3>
+    <p>Sports, clubs, arts, and leadership programs.</p>
+  </div>
+  <div class="feature-box">
+    <i class="fas fa-school"></i>
+    <h3>Modern Facilities</h3>
+    <p>Well-equipped labs, library, and digital learning tools.</p>
+  </div>
+</div>
+
+  </div>
+</section><section style="background:#f0fdf4;">
+  <div class="container about">
+    <div>
+      <h2>About Our School</h2>
+      <p>Bright Future High School nurtures learners to become disciplined, innovative, and responsible citizens ready for higher education and life challenges.</p>
+      <p><strong>Vision:</strong> To be a center of academic excellence.</p>
+      <p><strong>Mission:</strong> To provide holistic education through integrity and innovation.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="School">
+  </div>
+</section><section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Latest News & Events</h2>
+      <p>Stay updated with what's happening at our school.</p>
+    </div><div class="news">
+  <div class="news-card">
+    <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df" alt="News">
+    <div class="content">
+      <h3>KCSE Excellence Awards</h3>
+      <p>Celebrating our top-performing students.</p>
+    </div>
+  </div>
+  <div class="news-card">
+    <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0" alt="Event">
+    <div class="content">
+      <h3>Science Fair 2025</h3>
+      <p>Innovative student projects showcased.</p>
+    </div>
+  </div>
+  <div class="news-card">
+    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7" alt="Sports">
+    <div class="content">
+      <h3>Inter-School Sports</h3>
+      <p>Outstanding performance in athletics.</p>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section><section id="admission" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Online Admission Application</h2>
+      <p>Apply online easily by filling in the admission form below.</p>
+    </div><form style="max-width:700px;margin:auto;background:#fff;padding:2.5rem;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.1);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+    <input type="text" placeholder="Student Full Name" required style="padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+    <input type="date" required style="padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+    <select required style="padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+      <option value="">Class Applying For</option>
+      <option>Form One</option>
+      <option>Form Two</option>
+      <option>Form Three</option>
+      <option>Form Four</option>
+    </select>
+    <select required style="padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+      <option value="">Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+
+  <input type="text" placeholder="Parent / Guardian Name" required style="margin-top:1.5rem;width:100%;padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+  <input type="tel" placeholder="Parent Phone Number" required style="margin-top:1.5rem;width:100%;padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+  <input type="email" placeholder="Parent Email Address" style="margin-top:1.5rem;width:100%;padding:1rem;border-radius:10px;border:1px solid #cbd5e1;">
+
+  <textarea placeholder="Additional Information" rows="4" style="margin-top:1.5rem;width:100%;padding:1rem;border-radius:10px;border:1px solid #cbd5e1;"></textarea>
+
+  <button type="submit" style="margin-top:2rem;width:100%;padding:1rem;border:none;border-radius:30px;background:linear-gradient(90deg,#14532d,#166534);color:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;">Submit Application</button>
+</form>
+
+  </div>
+</section><section>
+  <div class="container cta">
+    <h2>Enroll Your Child Today</h2>
+    <p>Admissions are open for the next academic year.</p>
+  </div>
+</section><footer>
+  <div class="footer">
+    <div>
+      <h3>Bright Future High</h3>
+      <p>Empowering learners for a better tomorrow.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="#">Admissions</a></p>
+      <p><a href="#">Academics</a></p>
+      <p><a href="#">Contact</a></p>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-phone"></i> +254 700 000 000</p>
+      <p><i class="fas fa-envelope"></i> info@brightfuture.ac.ke</p>
+      <div class="social">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">© 2025 Bright Future High School. All Rights Reserved.</div>
+</footer><script>
+  function toggleMenu(){
+    document.getElementById('menu').classList.toggle('show');
+  }
+</script></body>
+</html>
