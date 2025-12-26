@@ -1,0 +1,2 @@
+# BrightFuture
+A highschool website
